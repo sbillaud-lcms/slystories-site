@@ -11,7 +11,7 @@
 <main>
   <header><img src="logo.png" alt="Sly Stories fox logo"><a href="./">SLY STORIES</a></header>
   <h1>Privacy Policy</h1>
-  <p class="muted">Last updated: October 13, 2026</p>
+  <p class="muted">Last updated: October 15, 2026</p>
 
   <p>This policy describes how "Sly Stories uploader" (the "Application"), a private tool
      operated by the owner of the Sly Stories YouTube channel, handles data.</p>
@@ -25,7 +25,8 @@
   <h2>Data the Application accesses</h2>
   <ul>
     <li>Permission to upload videos and set their metadata (title, description, tags,
-        privacy status, scheduled publication time) on the authorized channel.</li>
+        privacy status, scheduled publication time) on the authorized channel, to add a caption
+        track to them and to add them to the channel's own playlist.</li>
     <li>Read-only access to the authorized channel's own videos and their public statistics
         (views, likes, comments counts).</li>
     <li>Read-only access to the channel's own YouTube Analytics reports (for example audience
@@ -38,17 +39,20 @@
   <ul>
     <li>Data is used only to publish the channel's own videos and to produce aggregate
         statistics for the channel owner.</li>
-    <li>The OAuth access token and the statistics are stored locally on the channel owner's
-        computer. They are not uploaded to any server operated by the Application.</li>
+    <li>The Application runs as a scheduled job in the channel owner's private GitHub repository.
+        The OAuth token is kept there as an encrypted secret and is written to disk only for the
+        duration of each run, then deleted.</li>
+    <li>Statistics are stored in a database kept in that private repository, accessible only to
+        the channel owner.</li>
     <li>No data is sold, shared with third parties, or used for advertising.</li>
-    <li>Statistics are kept as long as they are useful to the channel owner and can be deleted
-        at any time by deleting the local database.</li>
+    <li>Statistics are refreshed daily; any statistic not refreshed for 30 days is deleted
+        automatically.</li>
   </ul>
 
   <h2>Revoking access</h2>
   <p>Access can be revoked at any time from the Google account security settings:
      <a href="https://security.google.com/settings/security/permissions">https://security.google.com/settings/security/permissions</a>.
-     Revoking access stops the Application immediately; locally stored tokens then become
+     Revoking access stops the Application immediately; the stored token then becomes
      unusable.</p>
 
   <h2>Cookies</h2>
